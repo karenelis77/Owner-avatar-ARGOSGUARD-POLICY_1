@@ -1,12 +1,41 @@
-# React + Vite
+Asistente de Normativas de Ciberseguridad
+Descripción
+Este proyecto es una herramienta que almacena, organiza y permite consultar las normativas y regulaciones de ciberseguridad de Colombia, Canadá y Estados Unidos.
+El objetivo es ofrecer un sistema local (sin conexión a internet) que funcione como un asistente inteligente, capaz de responder preguntas y guiar en la elaboración de políticas internas de seguridad según la legislación vigente.
+Características principales
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ Base de datos local con leyes y regulaciones en múltiples formatos: TXT, PDF, Excel, Word.
 
-Currently, two official plugins are available:
+ Consulta inteligente para obtener normativas aplicables por país o por temática.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ Soporte multi-idioma (español / inglés).
 
-## Expanding the ESLint configuration
+ Actualizaciones dinámicas de la base de datos sin comprometer la integridad de la información.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ Orientado a organizaciones que requieran cumplir con normativas internacionales de ciberseguridad.Estado del proyecto
+
+    Interfaz desarrollada en React + Vite.
+
+    Estructura inicial de datos en JSON (plan de migración a SQLite para relaciones y consultas avanzadas).
+
+    Módulo de carga y lectura de documentos en desarrollo.
+
+    Integración futura con motor de IA para consultas avanzadas.
+
+ Tecnologías usadas
+
+    Frontend: React + Vite
+
+    Gestión de datos: JSON (en migración a SQLite)
+
+    Lenguajes: JavaScript / SQL (futuro)
+
+Próximos pasos
+
+    Migrar base de datos a SQLite.
+
+    Implementar motor de búsqueda avanzada.
+
+    Integrar asistente de IA para consultas naturales.
+
+    Optimizar interfaz para visualización de normativas por país.

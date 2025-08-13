@@ -3,15 +3,14 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import Search from './components/Search';
 
+import Assistant from './components/Assistant';
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/search" element={<Search />} />
-      </Routes>
-    </Router>
+    <div>
+      <h1>Bienvenida Karen 👋</h1>
+      <Assistant />
+    </div>
   );
 }
 

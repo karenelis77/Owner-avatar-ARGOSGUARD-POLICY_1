@@ -1,0 +1,45 @@
+[
+  {
+    "id": "CO-LS-001",
+    "titulo": {
+      "es": "Ley de Protección de Datos",
+      "en": "Data Protection Law"
+    },
+    "descripcion": {
+      "es": "Establece normas sobre el tratamiento de datos personales en Colombia.",
+      "en": "Establishes rules on personal data processing in Colombia."
+    },
+    "pais": "Colombia",
+    "tipo": "Ley",
+    "categoria": "Ciberseguridad",
+    "fecha": "2012-10-15",
+    "idiomas_disponibles": ["es", "en"],
+    "relaciones": [
+      {
+        "id": "CO-LS-002",
+        "tipo": "Complementa"
+      },
+      {
+        "id": "INT-ISO27001",
+        "tipo": "Relacionado"
+      }
+    ]
+  },
+  {
+    "id": "INT-ISO27001",
+    "titulo": {
+      "es": "ISO/IEC 27001",
+      "en": "ISO/IEC 27001"
+    },
+    "descripcion": {
+      "es": "Norma internacional para sistemas de gestión de seguridad de la información.",
+      "en": "International standard for information security management systems."
+    },
+    "pais": "Internacional",
+    "tipo": "Estándar",
+    "categoria": "Ciberseguridad",
+    "fecha": "2013-10-01",
+    "idiomas_disponibles": ["es", "en"],
+    "relaciones": []
+  }
+]

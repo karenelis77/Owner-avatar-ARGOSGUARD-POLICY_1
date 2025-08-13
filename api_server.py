@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import sqlite3
 from typing import List, Tuple, Dict, Any
+=======
+>>>>>>> 068294a (Actualización del README y manual)
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
+<<<<<<< HEAD
 CORS(app)  # Permitir solicitudes desde el frontend
 
 def get_db_connection() -> sqlite3.Connection:
@@ -118,3 +122,25 @@ def delete_policy(id: int) -> Dict[str, Any]:
 if __name__ == '__main__':
     init_db()
     app.run(debug=True, port=5000)
+=======
+# Configura CORS para permitir solicitudes desde http://localhost:5173
+CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173"]}}, supports_credentials=True)
+
+@app.route('/api/assistant', methods=['POST'])
+def assistant():
+    data = request.get_json()
+    print("Consulta recibida:", data)
+    query = data.get('query', '').lower()  # Usar 'query' en lugar de 'pregunta'
+
+    # Lista de respuestas (puedes modificarla para procesar 'query')
+    respuestas = [
+        {"titulo": "Política Nacional de Seguridad Digital", "detalle": "Ver Detalles"},
+        {"titulo": "Ley de Protección de Datos (Habeas Data)", "detalle": "Ver Detalles"},
+    ]
+
+    # Devolver la lista de respuestas
+    return jsonify({"respuesta": respuestas})
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000, host="0.0.0.0")
+>>>>>>> 068294a (Actualización del README y manual)
