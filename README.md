@@ -38,4 +38,8 @@ Próximos pasos
 
     Integrar asistente de IA para consultas naturales.
 
+<<<<<<< HEAD
     Optimizar interfaz para visualización de normativas por país.
+=======
+    Optimizar interfaz para visualización de normativas por país.
+>>>>>>> f0a7660 (Actualización del README)

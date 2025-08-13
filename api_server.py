@@ -1,10 +1,11 @@
 import sqlite3
-from typing import List, Tuple, Dict, Any
+from typing import List, Dict, Any
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)  # Permitir solicitudes desde el frontend
+
 
 def get_db_connection() -> sqlite3.Connection:
     """Connect to the SQLite database."""
@@ -15,7 +16,7 @@ def get_db_connection() -> sqlite3.Connection:
     except sqlite3.Error as e:
         raise RuntimeError(f"Database connection failed: {e}")
 
-# Initialize the database
+
 def init_db() -> None:
     """Initialize the database with users and policies tables."""
     with get_db_connection() as conn:
@@ -34,12 +35,12 @@ def init_db() -> None:
                 description TEXT
             )
         ''')
-        # Insert a default user for testing
         cursor.execute(
             'INSERT OR IGNORE INTO users (email, password) VALUES (?, ?)',
             ('admin@example.com', 'password123')
         )
         conn.commit()
+
 
 @app.route('/api/login', methods=['POST'])
 def login() -> Dict[str, Any]:
@@ -60,6 +61,7 @@ def login() -> Dict[str, Any]:
         return jsonify({'success': True})
     return jsonify({'success': False}), 401
 
+
 @app.route('/api/policies', methods=['GET'])
 def get_policies() -> List[Dict[str, Any]]:
     """Retrieve all policies."""
@@ -68,6 +70,7 @@ def get_policies() -> List[Dict[str, Any]]:
         cursor.execute('SELECT * FROM policies')
         policies = cursor.fetchall()
     return jsonify([dict(policy) for policy in policies])
+
 
 @app.route('/api/policies', methods=['POST'])
 def create_policy() -> Dict[str, Any]:
@@ -85,6 +88,7 @@ def create_policy() -> Dict[str, Any]:
         conn.commit()
         policy_id = cursor.lastrowid
     return jsonify({'id': policy_id, 'name': name, 'description': description}), 201
+
 
 @app.route('/api/policies/<int:id>', methods=['PUT'])
 def update_policy(id: int) -> Dict[str, Any]:
@@ -104,6 +108,7 @@ def update_policy(id: int) -> Dict[str, Any]:
             return jsonify({'error': 'Policy not found'}), 404
     return jsonify({'id': id, 'name': name, 'description': description})
 
+
 @app.route('/api/policies/<int:id>', methods=['DELETE'])
 def delete_policy(id: int) -> Dict[str, Any]:
     """Delete a policy by ID."""
@@ -114,6 +119,7 @@ def delete_policy(id: int) -> Dict[str, Any]:
         if cursor.rowcount == 0:
             return jsonify({'error': 'Policy not found'}), 404
     return jsonify({'message': 'Policy deleted'})
+
 
 if __name__ == '__main__':
     init_db()
